@@ -64,26 +64,106 @@ class DateTest {
     void testIsLeapYearValid(){
         assertTrue(isLeapYear(2024));
     }
-    /*@Test
-    void testNextDateNullDayIsZero(){
-        Date date = new Date(0,1,0);
-        assertNull(date.nextDate());
-    }
-    @Test
-    void testNextDateNullOverMaxDaysOfMonth(){
-        Date date = new Date(32,1,0);
-        assertNull(date.nextDate());
-    }
     @Test
     void testNextDateNullMonthOverTwelve(){
         Date date = new Date(1,13,0);
         assertNull(date.nextDate());
     }
     @Test
-    void testNextDateNullMonthOverTwelve2(){
-        Date date = new Date(20,13,0);
+    void testNextDateNullMonthUnderOne(){
+        Date date = new Date(1,0,0);
         assertNull(date.nextDate());
-    }*/
+    }
+    @Test
+    void testNextDateNullDayUnderOne(){
+        Date date = new Date(0,1,0);
+        assertNull(date.nextDate());
+    }
+    @Test
+    void testNextDateNullDayOverMaxDaysOfMonth(){
+        Date date = new Date(31,4,0);
+        assertNull(date.nextDate());
+    }
+    @Test
+    void testNextDateNullDayOverMaxDaysOfMonth2(){
+        Date date = new Date(32,12,0);
+        assertNull(date.nextDate());
+    }
+    @Test
+    void testNextDateNextDay(){
+        Date date = new Date(1,1,0);
+        Date nextDay = new Date(2,1,0);
+        assertEquals(nextDay, date.nextDate());
+    }
+    @Test
+    void testNextDateNextDayNextMonth(){
+        Date date = new Date(31,1,0);
+        Date nextDay = new Date(1,2,0);
+        assertEquals(nextDay, date.nextDate());
+    }
+    @Test
+    void testNextDateNextDayNextMonthNextYear(){
+        Date date = new Date(31,12,0);
+        Date nextDay = new Date(1,1,1);
+        assertEquals(nextDay, date.nextDate());
+    }
+    @Test
+    void testCompareToNullPointerException(){
+        Date date = new Date(31,12,0);
+        Exception e = assertThrows(NullPointerException.class, () -> {
+            date.compareTo(null);
+        });
+        assertEquals("input value is null", e.getMessage());
+    }
 
+    @Test
+    void testPreviousDateNullMonthOverTwelve(){
+        Date date = new Date(1,13,0);
+        assertNull(date.nextDate());
+    }
+    @Test
+    void testPreviousDateNullMonthUnderOne(){
+        Date date = new Date(1,0,0);
+        assertNull(date.nextDate());
+    }
+    @Test
+    void testtestPreviousDateNullDayOverMaxDaysOfMonthDateNullDayUnderOne(){
+        Date date = new Date(0,1,0);
+        assertNull(date.nextDate());
+    }
+    @Test
+    void testPreviousDateNullDayOverMaxDaysOfMonth(){
+        Date date = new Date(31,4,0);
+        assertNull(date.nextDate());
+    }
+    @Test
+    void testPreviousDateNullDayOverMaxDaysOfMonth2(){
+        Date date = new Date(32,12,0);
+        assertNull(date.nextDate());
+    }
+    @Test
+    void testPreviousDatePreviousDay(){
+        Date date = new Date(2,1,0);
+        Date previousDay = new Date(1,1,0);
+        assertEquals(previousDay, date.previousDate());
+    }
+    @Test
+    void testPreviousDatePreviousDayPreviousMonth(){
+        Date date = new Date(1,2,0);
+        Date previousDay = new Date(31,1,0);
+        assertEquals(previousDay, date.previousDate());
+    }
+    @Test
+    void testPreviousDatePreviousDayPreviousMonthPreviousYear(){
+        Date date = new Date(1,1,0);
+        Date previousDay = new Date(31,12,-1);
+        assertEquals(previousDay, date.previousDate());
+    }
+
+    @Test
+    void testCompareToIsZero(){
+        Date date = new Date(1,1,1);
+        assertTrue(date.compareTo(date) == 0);
+    }
 
 }

@@ -19,7 +19,6 @@ class DateTest {
     Date NotValidThirtyDayMonth = new Date(31,4,2022);
     Date NotValidThirtyOneDayMonth = new Date(32,12,2022);
     */
-
     @Test
     void testIsValidDateDayIsZero(){
         assertFalse(isValidDate(0,1,0));
@@ -163,8 +162,22 @@ class DateTest {
     @Test
     void testCompareToIsZero(){
         Date date = new Date(1,1,1);
+        Date date2 = new Date(2,1,1);
         assertTrue(date.compareTo(date) == 0);
     }
+    @Test
+    void testComparePositive(){
+        Date date = new Date(1,1,1);
+        Date date2 = new Date(2,1,1);
+        assertTrue(date2.compareTo(date) > 0);
+    }
+    @Test
+    void testCompareNegative(){
+        Date date = new Date(1,1,1);
+        Date date2 = new Date(2,1,1);
+        assertTrue(date.compareTo(date2) < 0);
+    }
+
     @Test
     void testGetDay(){
         Date date = new Date(1,1,1);
@@ -179,6 +192,18 @@ class DateTest {
     void testGetYear(){
         Date date = new Date(1,1,1);
         assertEquals(1,date.getYear());
+    }
+    @Test
+    void testEqualsFalse(){
+        Date date = new Date(1,1,1);
+        Date date2 = new Date(2,1,1);
+        assertNotEquals(date,date2);
+    }
+    @Test
+    void testEqualsFalse2(){
+        Date date = new Date(1,1,1);
+        String s = "String";
+        assertNotEquals(date,s);
     }
 
 }

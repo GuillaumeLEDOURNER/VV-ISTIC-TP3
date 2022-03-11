@@ -165,5 +165,20 @@ class DateTest {
         Date date = new Date(1,1,1);
         assertTrue(date.compareTo(date) == 0);
     }
+    @Test
+    void testGetDay(){
+        Date date = new Date(1,1,1);
+        assertEquals(1,date.getDay());
+    }
+    @Test
+    void testGetMonth(){
+        Date date = new Date(1,1,1);
+        assertEquals(1,date.getMonth());
+    }
+    @Test
+    void testGetYear(){
+        Date date = new Date(1,1,1);
+        assertEquals(1,date.getYear());
+    }
 
 }

@@ -13,7 +13,7 @@ class Date implements Comparable<Date> {
     }
 
     public static boolean isValidDate(int day, int month, int year) {
-        if(year > 0  && month > 0 && month <= 12){
+        if(month > 0 && month <= 12){
             return day > 0 && day <= thirtyOrThirtyOne(month,year);
         }
         return false;
@@ -109,9 +109,6 @@ class Date implements Comparable<Date> {
         return year;
     }
 
-    public String toString(){
-        return "day : " + this.day + " | month : " + this.month + " | year : " + this.year;
-    }
     public static void main(String[] args){
 
     }

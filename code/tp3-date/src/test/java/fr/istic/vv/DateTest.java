@@ -64,6 +64,15 @@ class DateTest {
         assertTrue(isLeapYear(2024));
     }
     @Test
+    void testIsLeapYearValid2(){
+        assertTrue(isLeapYear(400));
+    }
+    @Test
+    void testIsLeapYearNotValid2(){
+        assertFalse(isLeapYear(100));
+    }
+
+    @Test
     void testNextDateNullMonthOverTwelve(){
         Date date = new Date(1,13,0);
         assertNull(date.nextDate());

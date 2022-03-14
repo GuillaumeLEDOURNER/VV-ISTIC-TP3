@@ -43,6 +43,6 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 | Number of ]               | 0     |  1    | >1    |
 
 2. The coverage of the test we designed is 100 % No new tests were needed
-3. The Basic Choice Coverage is satisfyied with our test as we already alternate the different components to create he isBalanced Test
+3. The Basic Choice Coverage is satisfyied with our test as we already alternate the different components to create the isBalanced Test. With multiple boolean operators in a predicate, we test the boolean operator and it's reciprocal. For an exemple, to test "a && b" we also try "a || b".
 4. Return of PIT 
 ![image](https://user-images.githubusercontent.com/80216294/158188615-ae3468fa-86bb-4416-a385-86e5a66517b2.png)
